@@ -75,8 +75,18 @@ module.exports = function(eleventyConfig) {
 	});
 
 	eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
-		return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
+		return (tags || []).filter(tag => ["all", "nav", "post", "posts", "pinned"].indexOf(tag) === -1);
 	});
+
+	eleventyConfig.addFilter("getPinnedPosts", function getPinnedPosts(collection) {
+		let pinnedPosts = []
+		for(let item of collection) {
+			if ((item.data.tags || []).includes("pinned")) {
+				pinnedPosts.push(item);
+			}
+		};
+		return pinnedPosts;
+	})
 
 	// Customize Markdown library settings:
 	eleventyConfig.amendLibrary("md", mdLib => {
