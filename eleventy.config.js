@@ -78,14 +78,14 @@ module.exports = function(eleventyConfig) {
 		return (tags || []).filter(tag => ["all", "nav", "post", "posts", "pinned"].indexOf(tag) === -1);
 	});
 
-	eleventyConfig.addFilter("getPinnedPosts", function getPinnedPosts(collection) {
-		let pinnedPosts = []
+	eleventyConfig.addFilter("getTaggedPosts", function getTaggedPosts(collection, tag) {
+		let postsArray = []
 		for(let item of collection) {
-			if ((item.data.tags || []).includes("pinned")) {
-				pinnedPosts.push(item);
+			if ((item.data.tags || []).includes(tag)) {
+				postsArray.push(item);
 			}
 		};
-		return pinnedPosts;
+		return postsArray;
 	})
 
 	// Customize Markdown library settings:
