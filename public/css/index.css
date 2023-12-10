@@ -105,12 +105,6 @@ header:after {
 	clear: both;
 }
 
-.links-nextprev {
-	list-style: none;
-	border-top: 1px dashed var(--color-gray-20);
-	padding: 1em 0;
-}
-
 table {
 	margin: 1em 0;
 }
@@ -157,24 +151,6 @@ header {
 }
 .home-link:link:not(:hover) {
 	text-decoration: none;
-}
-
-/* Nav */
-.nav {
-	display: flex;
-	padding: 0;
-	margin: 0;
-	list-style: none;
-}
-.nav-item {
-	display: inline-block;
-	margin-right: 1em;
-}
-.nav-item a[href]:not(:hover) {
-	text-decoration: none;
-}
-.nav a[href][aria-current="page"] {
-	text-decoration: underline;
 }
 
 /* Posts list */
