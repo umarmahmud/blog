@@ -78,10 +78,20 @@ module.exports = function(eleventyConfig) {
 		return (tags || []).filter(tag => ["all", "nav", "post", "posts", "pinned"].indexOf(tag) === -1);
 	});
 
-	eleventyConfig.addFilter("getTaggedPosts", function getTaggedPosts(collection, tag) {
+	eleventyConfig.addFilter("getPostsWithTag", function getPostsWithTag(collection, tag) {
 		let postsArray = []
 		for(let item of collection) {
 			if ((item.data.tags || []).includes(tag)) {
+				postsArray.push(item);
+			}
+		};
+		return postsArray;
+	})
+
+	eleventyConfig.addFilter("getPostsWithoutTag", function getPostsWithoutTag(collection, tag) {
+		let postsArray = []
+		for(let item of collection) {
+			if (!(item.data.tags || []).includes(tag)) {
 				postsArray.push(item);
 			}
 		};

@@ -6,7 +6,6 @@ eleventyNavigation:
 numberOfLatestPostsToShow: 5
 ---
 {% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
-{% set postslistCounter = postsCount %}
 <h1>Pinned Posts</h1>
 {% include "pinnedpostslist.njk" %}
 <h1>Latest Posts</h1>
