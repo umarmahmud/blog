@@ -5,11 +5,13 @@ eleventyNavigation:
   order: 1
 numberOfLatestPostsToShow: 5
 ---
-{% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
+{% set latestpostslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
+{% set pinnedpostslist = collections.posts %}
 <h1>Pinned Posts</h1>
 {% include "pinnedpostslist.njk" %}
 <h1>Latest Posts</h1>
-{% include "postslist.njk" %}
+{% include "latestpostslist.njk" %}
+<i><a href="/blog/">All Posts</a></i>
 {% include "tagslist.njk" %}
 
 
