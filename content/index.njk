@@ -8,9 +8,13 @@ numberOfLatestPostsToShow: 5
 {% set latestpostslist = collections.posts | getPostsWithoutTag("pinned") | head(-1 * numberOfLatestPostsToShow) %}
 {% set pinnedpostslist = collections.posts | getPostsWithTag("pinned") %}
 <h1>&#x1F4CC; Pinned Posts</h1>
-{% include "pinnedpostslist.njk" %}
+{% for post in pinnedpostslist | reverse %}
+{% include "post.njk" %}
+{% endfor %}
 <h1>&#x2728; Latest Posts</h1>
-{% include "latestpostslist.njk" %}
+{% for post in latestpostslist | reverse %}
+{% include "post.njk" %}
+{% endfor %}
 <i><a href="/blog/">All Posts</a></i>
 {% include "tagslist.njk" %}
 

@@ -7,4 +7,6 @@ eleventyNavigation:
 <h1>&#x1F5D2; Posts</h1>
 
 {% set postslist = collections.posts %}
-{% include "postslist.njk" %}
+{% for post in postslist | reverse %}
+{% include "post.njk" %}
+{% endfor %}
