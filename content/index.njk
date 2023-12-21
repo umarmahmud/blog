@@ -5,8 +5,8 @@ eleventyNavigation:
   order: 1
 numberOfLatestPostsToShow: 5
 ---
-{% set latestpostslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
-{% set pinnedpostslist = collections.posts %}
+{% set latestpostslist = collections.posts | getPostsWithoutTag("pinned") | head(-1 * numberOfLatestPostsToShow) %}
+{% set pinnedpostslist = collections.posts | getPostsWithTag("pinned") %}
 <h1>&#x1F4CC; Pinned Posts</h1>
 {% include "pinnedpostslist.njk" %}
 <h1>&#x2728; Latest Posts</h1>
