@@ -145,12 +145,30 @@ header {
 	padding: 1em;
 }
 .home-link {
-	font-size: 2.5em;
+	font-size: 1em;
 	font-weight: 700;
 	margin-right: 2em;
 }
 .home-link:link:not(:hover) {
 	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
 }
 
 /* Posts list */
