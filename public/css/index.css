@@ -256,6 +256,7 @@ h2 + .header-anchor {
 
 footer {
 	align-items: center;
+	text-align: center;
 	padding: 1em;
 	border-top: 1px dashed var(--color-gray-20);
 }

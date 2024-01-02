@@ -98,6 +98,8 @@ module.exports = function(eleventyConfig) {
 		return postsArray;
 	})
 
+	eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+
 	// Customize Markdown library settings:
 	eleventyConfig.amendLibrary("md", mdLib => {
 		mdLib.use(markdownItAnchor, {
